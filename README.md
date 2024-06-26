@@ -146,9 +146,26 @@ After saving the file, reload your X resources with:
 xrdb ~/.Xresources
 ```
 
-Certainly! Here's how to change your desktop wallpaper in i3wm using the GUI interface provided by `nitrogen`:
+**Step 7: Use dunst for notifications**
 
-**Step 7: Change Wallpaper Using GUI (Nitrogen)**
+```bash
+sudo apt install libx11-dev libxinerama-dev libxrandr-dev libxss-dev libglib2.0-dev libpango1.0-dev libgtk-3-dev libxdg-basedir-dev libgdk-pixbuf-2.0-dev libnotify-dev
+git clone https://github.com/dunst-project/dunst.git
+cd dunst
+make
+sudo PREFIX=/usr checkinstall
+```
+
+**Step 8: Use Faba icon theme**
+
+```bash
+git clone https://github.com/snwh/faba-icon-theme.git
+cd faba-icon-theme
+meson "build" --prefix=/usr\
+sudo ninja -C "build" install
+```
+
+**Step 9: Change Wallpaper Using GUI (Nitrogen)**
 
 1. Open a terminal and run the `nitrogen` command to launch the Nitrogen wallpaper manager:
 
@@ -206,6 +223,12 @@ cp picom.conf ~/.config/
 ```
 
 This command copies the `picom.conf` file to `~/.config/`, where picom (the compositor) expects its configuration.
+
+**Step 4: Copy the Dunst Configuration**
+
+```bash
+cp dunstrc ~/.config/dunst/dunstrc
+```
 
 **Step 4: Create the `auto_start_script` Directory and Copy Scripts**
 
